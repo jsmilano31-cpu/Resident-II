@@ -6,7 +6,7 @@ const sans = Manrope({
   variable: "--font-sans",
   display: "swap",
 });
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://archi2-kohl.vercel.app";
 const indexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
 export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,

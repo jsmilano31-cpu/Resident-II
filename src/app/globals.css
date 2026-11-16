@@ -1213,3 +1213,5 @@ h1 em,h2 em { font-style: normal; color: #795B43; }
 @media(max-width:1000px) { .hero { grid-template-columns:1fr; padding:20px var(--gutter) 0; } .hero-copy { padding:30px 0; } .hero-copy h1 br { display:none; } .hero-copy h1 { font-size:clamp(45px,8vw,80px); } .hero-copy h1 em { display:block; } .hero-edition { margin-top:25px; } .hero-frame { margin:0; } .layers-grid { gap:25px; } .layer-note { padding:0; } .floorplan-layout { grid-template-columns:1fr; } .floorplan-preview,.floorplan-rooms,.floor-room-preview { grid-column:1; grid-row:auto; position:static; } .floor-room-preview { order:3; } }
 @media(max-width:650px) { .layers-grid,.closing-grid { grid-template-columns:1fr; } .detail-offset { grid-column:1; margin:0; } .layers-grid { gap:35px; } .hero-frame figcaption { font-size:8px; padding:12px; } .hero-copy h1 { font-size:50px; } .closing-grid { gap:35px; } .floorplan-room-links { column-gap:14px; } }
 @media(prefers-reduced-motion:reduce) { .chapter-progress,.floorplan-open img { animation:none; } }
+
+.life-pair figure:last-child img { aspect-ratio: 2560/2188; }
