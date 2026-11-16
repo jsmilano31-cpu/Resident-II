@@ -30,35 +30,57 @@ test("all 41 perspectives and 2 plans have valid manifests and decodable respons
   for(const id of plan.roomIds) assert.ok(spaces.some(s=>s.id===id));
  }
 });
-test("gallery pages expose all 41 perspectives in groups of six and wrap",()=>{
- const view=render(<ArchitecturalGallery items={images} label="All rooms"/>); const seen=new Set<string>();
- for(let page=0;page<Math.ceil(images.length/6);page++){
-  const cards=view.getAllByRole("button",{name:/^Enlarge:/});assert.ok(cards.length<=6);
-  cards.forEach(card=>seen.add(card.getAttribute("aria-label")!));
-  fireEvent.click(view.getByRole("button",{name:"Next All rooms views"}));
+test("the explorer starts in the living room and every one of the 41 angles is selectable",()=>{
+ const view=render(<ArchitecturalGallery items={images} label="All rooms"/>);
+ assert.equal((view.getByRole("combobox") as HTMLSelectElement).value,"living");
+ let count=0;
+ for(const space of spaces){
+  fireEvent.change(view.getByRole("combobox"),{target:{value:space.id}});
+  const views=images.filter(image=>image.spaceId===space.id);
+  for(const [index,image] of views.entries()){
+   fireEvent.click(view.getByRole("button",{name:space.name+", angle "+(index+1)}));
+   const displayed=view.getByRole("button",{name:"Enlarge: "+image.caption}).querySelector("img");
+   assert.equal(displayed?.getAttribute("src"),image.src);count++;
+  }
  }
- assert.equal(seen.size,41);assert.ok(view.getByRole("button",{name:"Enlarge: "+images[0].caption}));
- fireEvent.click(view.getByRole("button",{name:"Previous All rooms views"}));assert.equal(view.getAllByRole("button",{name:/^Enlarge:/}).length,5);
+ assert.equal(count,41);
+ fireEvent.click(view.getByRole("button",{name:"Browse all 41 views"}));
+ assert.equal(document.querySelectorAll("#all-perspectives figure").length,41);
+});
+
+test("desktop room buttons, category reset and angle wrapping stay synchronized",()=>{
+ const view=render(<ArchitecturalGallery items={images} label="All rooms"/>);
+ const balcony=spaces.find(space=>space.id==="balcony")!;
+ fireEvent.click(view.getByRole("button",{name:balcony.name+" "+balcony.japanese}));
+ const views=images.filter(image=>image.spaceId==="balcony");
+ fireEvent.click(view.getByRole("button",{name:"Previous angle"}));
+ assert.ok(view.getByRole("button",{name:"Enlarge: "+views.at(-1)!.caption}));
+ fireEvent.click(view.getByRole("button",{name:"Next angle"}));
+ assert.ok(view.getByRole("button",{name:"Enlarge: "+views[0].caption}));
+ fireEvent.click(view.getByRole("button",{name:"Shared spaces"}));
+ const selected=(view.getByRole("combobox") as HTMLSelectElement).value;
+ assert.ok(images.some(image=>image.spaceId===selected&&image.category==="Shared spaces"));
+ assert.equal(view.queryByRole("button",{name:balcony.name+" "+balcony.japanese}),null);
+ fireEvent.click(view.getByRole("button",{name:"All spaces"}));
+ const closet=spaces.find(space=>space.id==="closet")!;
+ fireEvent.click(view.getByRole("button",{name:closet.name+" "+closet.japanese}));
+ assert.ok((view.getByRole("button",{name:"Next angle"}) as HTMLButtonElement).disabled);
 });
 
 test("plan viewer loads originals on demand, bounds zoom, resets floors and restores focus",()=>{
  const view=render(<FloorPlans/>);const opener=view.getByRole("button",{name:"Enlarge Ground Floor plan"});assert.equal(document.querySelector('img[src$="original.png"]'),null);fireEvent.click(opener);const dialog=within(view.getByRole("dialog"));for(let i=0;i<4;i++)fireEvent.click(dialog.getByRole("button",{name:"Zoom in"}));assert.ok(dialog.getByText("300%"));assert.ok((dialog.getByRole("button",{name:"Zoom in"}) as HTMLButtonElement).disabled);fireEvent.click(dialog.getByRole("button",{name:/^Second Floor/}));assert.ok(dialog.getByText("100%"));fireEvent.click(dialog.getByRole("button",{name:"Close floor plan"}));assert.equal(document.activeElement,opener);assert.equal(document.querySelector('img[src$="original.png"]'),null);
 });
-test("gallery modal supports click, keyboard navigation and focus restoration",()=>{
+test("explorer modal supports keyboard navigation, scroll lock and focus restoration",()=>{
  const view=render(<ArchitecturalGallery items={images} label="All rooms"/>);
+ const image=images.find(image=>image.spaceId==="living")!;
  assert.equal(view.container.querySelector('img[src$="2560.webp"]'),null);
- const opener=view.getByRole("button",{name:"Enlarge: "+images[0].caption});opener.focus();fireEvent.click(opener);
- const dialog=view.getByRole("dialog");assert.equal(dialog.querySelector("img")?.getAttribute("src"),images[0].fullSrc);
- fireEvent.keyDown(dialog,{key:"ArrowLeft"});assert.equal(dialog.querySelector("img")?.getAttribute("src"),images.at(-1)!.fullSrc);
- fireEvent.keyDown(dialog,{key:"ArrowRight"});assert.equal(dialog.querySelector("img")?.getAttribute("src"),images[0].fullSrc);
+ const opener=view.getByRole("button",{name:"Enlarge: "+image.caption});opener.focus();fireEvent.click(opener);
+ const dialog=view.getByRole("dialog");assert.equal(dialog.querySelector("img")?.getAttribute("src"),image.fullSrc);
+ const index=images.indexOf(image);
+ fireEvent.keyDown(dialog,{key:"ArrowLeft"});assert.equal(dialog.querySelector("img")?.getAttribute("src"),images[(index-1+images.length)%images.length].fullSrc);
+ fireEvent.keyDown(dialog,{key:"ArrowRight"});assert.equal(dialog.querySelector("img")?.getAttribute("src"),image.fullSrc);
  assert.equal(document.documentElement.style.overflow,"hidden");
  fireEvent.click(view.getByRole("button",{name:"Close image"}));
  assert.equal(document.documentElement.style.overflow,"");assert.equal(document.activeElement,opener);
  assert.equal(view.container.querySelector('img[src$="2560.webp"]'),null);
-});
-
-test("room filtering resets pagination and exposes all matching perspectives",()=>{
- const view=render(<ArchitecturalGallery items={images} label="All rooms"/>);
- fireEvent.click(view.getByRole("button",{name:"Next All rooms views"}));
- for(const space of spaces){fireEvent.change(view.getByRole("combobox"),{target:{value:space.id}});const roomImages=images.filter(i=>i.spaceId===space.id);assert.equal(view.getAllByRole("button",{name:/^Enlarge:/}).length,roomImages.length);for(const image of roomImages)assert.ok(view.getByRole("button",{name:"Enlarge: "+image.caption}));}
 });

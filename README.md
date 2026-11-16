@@ -14,7 +14,8 @@ Mobile/tablet, reduced-motion, save-data and no-JavaScript views preserve three 
 
 ## Gallery and plans
 
-A six-image editorial page has a full-width lead image and paired desktop images, stacked on mobile. The room selector filters all 41 perspectives. Pager controls return focus to the new gallery page. Native lightboxes support keyboard arrows, Escape, background scroll lock and focus restoration. The plan viewer preserves uncropped artwork, floor selection, 100-300 percent zoom and reset.
+The residence explorer starts in the living room and uses category buttons, a large uncropped selected perspective, a two-column desktop room list with Japanese labels, angle thumbnails and previous/next controls. On smaller screens a room selector appears above the image. An expandable complete collection keeps all 41 renders accessible. The layout follows the first residence website, while retaining Residence II colors and typography. Native lightboxes support keyboard arrows, Escape, background scroll lock and focus restoration. The plan viewer preserves uncropped artwork, floor selection, 100-300 percent zoom and reset.
+
 
 ## Assets and hosting
 

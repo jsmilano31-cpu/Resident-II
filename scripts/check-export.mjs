@@ -15,7 +15,10 @@ assert.equal(doc.querySelector('meta[name="robots"]').content.includes("noindex"
 await access("out/404.html");console.log("Verified cinematic opening and 5 chapters, all 41 perspectives and both plans, responsive assets, anchors, metadata and static output.");
 
 assert.equal(doc.querySelectorAll(".entrance-scene").length,3);
-assert.equal(doc.querySelectorAll(".editorial-image").length,6);
+assert.equal(doc.querySelectorAll(".space-explorer .explorer-image").length,1);
+assert.ok(doc.querySelector('.space-explorer .explorer-image img[src*="living-area-view-1"]'));
+assert.equal(doc.querySelectorAll(".space-explorer .gallery-filters button").length,7);
+assert.equal(doc.querySelectorAll(".space-explorer .space-list button").length,22);
 assert.ok(doc.querySelector('a.skip-intro[href="#concept"]'));
 assert.equal(doc.querySelectorAll('img[fetchpriority="high"]').length,1);
 assert.equal(doc.querySelector('video,canvas'),null);
