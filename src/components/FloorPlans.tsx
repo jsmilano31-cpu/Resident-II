@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { Expand, Minus, Plus, X } from "lucide-react";
 import plans from "@/data/floorplans.json";
 import type { FloorPlan } from "@/types/architecture";
+import { useDialogLock } from "./useDialogLock";
 import { MediaImage } from "./MediaImage";
 
 export const floorPlans: FloorPlan[] = plans;
@@ -10,6 +11,7 @@ export function FloorPlans() {
   const [floor, setFloor] = useState(0);
   const [opened, setOpened] = useState(false);
   const [zoom, setZoom] = useState(1);
+  useDialogLock(opened);
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement>(null);
   const viewport = useRef<HTMLDivElement>(null);

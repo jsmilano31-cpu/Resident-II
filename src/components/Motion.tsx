@@ -10,7 +10,6 @@ export function Motion({ children }: { children: React.ReactNode }) {
   if ((navigator as Navigator & {connection?: {saveData?: boolean}}).connection?.saveData) return;
   const mm = gsap.matchMedia();
   mm.add("(prefers-reduced-motion: no-preference)", () => {
-   gsap.from(".hero-copy > *", { y: 18, opacity: 0, duration: .8, stagger: .1 });
    gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach(el => gsap.from(el, { y: 20, opacity: 0, duration: .7, scrollTrigger: { trigger: el, start: "top 94%", once: true } }));
   });
   const refresh = () => ScrollTrigger.refresh();

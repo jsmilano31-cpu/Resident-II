@@ -60,6 +60,11 @@ export const project = {
   bedroom: renderByFile("MASTER'S BEDROOM VIEW 2.png"),
   balcony: renderByFile("BALOCNY VIEW 2.png"),
 };
+export const entranceScenes = [
+  { image: renderByFile("MAIN EXTERIOR PERSPECTIVES 1.png"), focal: "60% 40%", label: "01 / The approach", japanese: "住まいへ" },
+  { image: renderByFile("ENTRY PORCH VIEW 1.png"), focal: "60% 62%", label: "02 / The threshold", japanese: "玄関" },
+  { image: renderByFile("LIVING AREA VIEW 1.png"), focal: "50% 60%", label: "03 / Life within", japanese: "暮らしの風景" },
+];
 
 function orderedCollection(categories: string[], leadingFiles: string[]) {
   const leading = leadingFiles.map(renderByFile);

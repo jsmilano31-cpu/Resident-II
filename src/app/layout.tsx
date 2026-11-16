@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "The Residence II" },
 };
 export const viewport: Viewport = {
-  themeColor: "#F4F0E8",
+  themeColor: "#080b0d",
   colorScheme: "dark light",
 };
 export default function RootLayout({

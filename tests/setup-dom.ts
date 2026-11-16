@@ -55,3 +55,5 @@ dom.window.HTMLDialogElement.prototype.close = function () {
   this.removeAttribute("open");
   this.dispatchEvent(new dom.window.Event("close"));
 };
+
+dom.window.HTMLElement.prototype.scrollIntoView = function () {};

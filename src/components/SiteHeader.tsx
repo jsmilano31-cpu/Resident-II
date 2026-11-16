@@ -1,51 +1,23 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-const links = [["hero", "The house"], ["layers", "Exterior"], ["living", "Interiors"], ["layout", "Floor plans"]];
+const links = [["concept", "Project"], ["collection", "Gallery"], ["layout", "Plans"]];
 export function SiteHeader() {
-  const [active, setActive] = useState("hero");
   const menu = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries)
-          if (entry.isIntersecting) setActive(entry.target.id);
-      },
-      { rootMargin: "-15% 0px -60% 0px" },
-    );
-    document
-      .querySelectorAll("main > section[id]")
-      .forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
   return (
     <>
       <header className="site-header"><span className="chapter-progress" aria-hidden="true" />
         <a className="wordmark" href="#hero">
           THE RESIDENCE II
         </a>
-        <nav className="desktop-nav" aria-label="Main navigation">
-          {links.map(([id, name]) => (
-            <a
-              key={id}
-              href={"#" + id}
-              aria-current={active === id ? "location" : undefined}
-            >
-              {name}
-            </a>
-          ))}
-        </nav>
-        <a className="header-contact" href="#layout">
-          View floor plans <ArrowUpRight size={14} />
-        </a>
         <button
           ref={opener}
-          className="icon-button mobile-menu-button"
+          className="menu-button"
           aria-label="Open navigation"
           onClick={() => menu.current?.showModal()}
         >
-          <Menu />
+          <span>Menu</span><Menu size={18} />
         </button>
       </header>
       <dialog

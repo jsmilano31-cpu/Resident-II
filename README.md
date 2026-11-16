@@ -1,18 +1,25 @@
-# The Residence II - Light & Layers
+# The Residence II - Cinematic architectural presentation
 
-Independent architectural presentation: 41 perspectives, 2 plans, English with Japanese labels. Static Next.js, React, TypeScript and GSAP. No login or backend.
+Static Next.js/React/TypeScript website using the client supplied 41 architectural perspectives and 2 floor plans. No accounts, CMS, video, or model runtime.
 
-Use Node 24.15+. Run npm ci, npm run dev, npm run lint, npm test, npm run build, npm run typecheck, npm run check:export. npm start previews out/.
+## Run and verify
 
-Seven sections prioritize the house: large exterior opening, exterior carousel, shared living, bedrooms, full-width floor plans, everyday details, and a closing exterior. All 41 supplied perspectives remain accessible. Hover/focus expands a card above adjacent cards; touch users can swipe cards and tap to enlarge. See the image-led presentation update below.
+Node 24.15+. Run npm ci, npm run dev, npm run lint, npm test, npm run build, npm run typecheck, npm run check:export. npm start serves the static out/ directory.
 
-Rebuild assets using scripts/import-renders.mjs and scripts/import-floorplans.mjs, passing the supplied japan 2 renders/japan 2 renders directory. Manifests record original filenames, checksums, dimensions and room associations. Perspectives: 640/1280/1920/2560px WebP. Plans: 640/1280/1600px previews and original PNGs. Technical render passes remain source references outside the public gallery. The darker closet view remains available. Laundry has a plan label but no standalone perspective.
+## Entrance
 
-Deploy independently to the archi2 Vercel project connected to GitHub. Node 24, Next.js, npm run build; leave Vercel Output Directory at the Next.js default. Local static export is out/. NEXT_PUBLIC_SITE_URL sets canonical and social URLs. Default robots is noindex; enable indexing intentionally with NEXT_PUBLIC_ALLOW_INDEXING=true.
+CinematicEntrance presents Exterior 1, Entry Porch 1, and Living Area 1. A 12-second inner-layer scale from 1.00 to 1.06 starts after the first image loads. The title enters over 1.25 seconds. On desktop (1100px width, 700px height, fine pointer, normal motion), a 300svh section with a sticky 100svh stage crossfades the three images using native scrolling and GSAP. No synthetic door or continuous walkthrough is claimed. Transitions hold the preceding scene until destination images decode. Skip introduction remains available. Browser resize/unmount cleanup removes animation styles.
 
-GitHub CI runs lint, tests, build, types and export checks. Native browser focus trapping, visual appearance and physical-device performance require browser QA; report unavailable checks explicitly.
+Mobile/tablet, reduced-motion, save-data and no-JavaScript views preserve three stacked scenes. Portrait framing retains the complete exterior. Reduced motion disables CSS motion and GSAP. No loader blocks the initial image, text, navigation, or scrolling.
 
+## Gallery and plans
 
-## Image-led presentation update
+A six-image editorial page has a full-width lead image and paired desktop images, stacked on mobile. The room selector filters all 41 perspectives. Pager controls return focus to the new gallery page. Native lightboxes support keyboard arrows, Escape, background scroll lock and focus restoration. The plan viewer preserves uncropped artwork, floor selection, 100-300 percent zoom and reset.
 
-The opening prioritizes a complete exterior image and a clear two-storey home description. Four three-card carousels cover all 41 renders: exterior/outdoor, shared living, private rooms, and circulation/utility. Desktop hover or keyboard focus expands cards above their neighbors without shifting layout. Select a card for a full-size native dialog. Mobile uses horizontal swipe within each group and previous/next group controls. Reduced motion disables transforms and transitions. Floor plans have their own full-width section with enlargement and zoom. Dense room lists and the previous split-screen explorer have been removed.
+## Assets and hosting
+
+See ASSET_CHECKLIST.md and ASSETS.md. Responsive WebP assets are static and backed by checksum manifests. No synthetic recoloring or fabricated dusk images are used. Keep Vercel framework Next.js and Output Directory at its adapter default; local export remains out/. Node 24. GitHub Resident-II main deploys to archi2-kohl.vercel.app. NEXT_PUBLIC_SITE_URL optionally overrides canonical/social URLs; indexing defaults to noindex.
+
+## Verification limits
+
+Tests cover image inventory, gallery filtering/paging, dialogs, zoom, reduced motion, save-data, desktop scene gating and GSAP cleanup. Browser access host was unavailable during this update, so actual desktop/mobile composition, native focus trapping, console output and scroll smoothness have not been visually verified. Test the deployed site at 1920x1080, 1440x900, 768x1024, 390x844 and 320x700 before client presentation.

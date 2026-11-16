@@ -60,10 +60,10 @@ test("reduced motion keeps content untransformed and creates no scroll triggers"
     "",
   );
 });
-test("normal small-screen motion initializes title animation and cleans up on unmount", () => {
+test("normal small-screen motion initializes section animation and cleans up on unmount", () => {
   media("mobile");
   const v = render(<Scene />);
-  assert.ok(gsap.getTweensOf(v.getByRole("heading")).length > 0);
+  assert.ok(gsap.getTweensOf(document.querySelector("[data-reveal]")!).length > 0);
   assert.equal(
     document.querySelector<HTMLElement>(".arrival-scene")?.style.position,
     "",
