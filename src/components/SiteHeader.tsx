@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-const links = [["hero", "The home"], ["layers", "Light & layers"], ["layout", "Explore"], ["collection", "All perspectives"]];
+const links = [["hero", "The house"], ["layers", "Exterior"], ["living", "Interiors"], ["layout", "Floor plans"]];
 export function SiteHeader() {
   const [active, setActive] = useState("hero");
   const menu = useRef<HTMLDialogElement>(null);
@@ -37,7 +37,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <a className="header-contact" href="#layout">
-          Explore the home <ArrowUpRight size={14} />
+          View floor plans <ArrowUpRight size={14} />
         </a>
         <button
           ref={opener}
