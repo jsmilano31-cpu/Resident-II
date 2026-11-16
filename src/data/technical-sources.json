@@ -1,0 +1,17 @@
+[
+  {
+    "sourceFilename": "GROUND FLOOR PLAN_AI_Albedo.png",
+    "sourceSha256": "7738095e8eaf4f653916dc5fad4ef6295ab2680a9bff6ea80ef97da6bc59d391",
+    "usage": "Technical render pass; excluded from client gallery"
+  },
+  {
+    "sourceFilename": "GROUND FLOOR PLAN_AI_Material.png",
+    "sourceSha256": "cbed71fb7228c068b8ec3a49e5495b385dd3253873f8dda5a9d4a017dbab1c2c",
+    "usage": "Technical render pass; excluded from client gallery"
+  },
+  {
+    "sourceFilename": "GROUND FLOOR PLAN_AI_Normal.png",
+    "sourceSha256": "a37c472252dfa1050086d39c46c2acec08fe246f162fc52924f2e98a522906a1",
+    "usage": "Technical render pass; excluded from client gallery"
+  }
+]
