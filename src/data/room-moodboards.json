@@ -1,0 +1,640 @@
+{
+  "balcony": {
+    "main": "balocny-view-2",
+    "details": [
+      {
+        "source": "balocny-view-2",
+        "crop": {
+          "left": 115,
+          "top": 1273,
+          "width": 966,
+          "height": 832
+        },
+        "label": "Pale sofa and warm cushions",
+        "ja": "淡色のソファと暖色のクッション"
+      },
+      {
+        "source": "balocny-view-2",
+        "crop": {
+          "left": 1210,
+          "top": 256,
+          "width": 582,
+          "height": 633
+        },
+        "label": "Recessed lighting under the roof",
+        "ja": "軒天の埋め込み照明"
+      }
+    ]
+  },
+  "bar": {
+    "main": "bar-area-view-1",
+    "details": [
+      {
+        "source": "bar-area-view-1",
+        "crop": {
+          "left": 1088,
+          "top": 134,
+          "width": 608,
+          "height": 749
+        },
+        "label": "Globe pendant cluster",
+        "ja": "球形のペンダント照明"
+      },
+      {
+        "source": "bar-area-view-2",
+        "crop": {
+          "left": 384,
+          "top": 915,
+          "width": 1069,
+          "height": 640
+        },
+        "label": "Lit counter edge and veined front",
+        "ja": "光るカウンター縁と石目模様の正面"
+      }
+    ]
+  },
+  "bedroom-1": {
+    "main": "bedroom-1-view-1",
+    "details": [
+      {
+        "source": "bedroom-1-view-1",
+        "crop": {
+          "left": 1331,
+          "top": 557,
+          "width": 621,
+          "height": 358
+        },
+        "label": "Vertical slats above the TV",
+        "ja": "テレビ上の縦格子"
+      },
+      {
+        "source": "bedroom-1-view-2",
+        "crop": {
+          "left": 1504,
+          "top": 621,
+          "width": 787,
+          "height": 851
+        },
+        "label": "Dark wardrobe with slim pulls",
+        "ja": "細い取っ手の濃色ワードローブ"
+      }
+    ]
+  },
+  "bedroom-2": {
+    "main": "bedroom-2-view-1",
+    "details": [
+      {
+        "source": "bedroom-2-view-1",
+        "crop": {
+          "left": 1299,
+          "top": 889,
+          "width": 698,
+          "height": 493
+        },
+        "label": "Warm accent cushions",
+        "ja": "暖色のアクセントクッション"
+      },
+      {
+        "source": "bedroom-2-view-2",
+        "crop": {
+          "left": 83,
+          "top": 211,
+          "width": 934,
+          "height": 876
+        },
+        "label": "Dark open shelving",
+        "ja": "濃色のオープン収納"
+      }
+    ]
+  },
+  "bedroom-3": {
+    "main": "bedroom-3-view-1",
+    "details": [
+      {
+        "source": "bedroom-3-view-1",
+        "crop": {
+          "left": 218,
+          "top": 844,
+          "width": 992,
+          "height": 563
+        },
+        "label": "Green channel headboard",
+        "ja": "グリーンの縦ライン入りヘッドボード"
+      },
+      {
+        "source": "bedroom-3-view-2",
+        "crop": {
+          "left": 1389,
+          "top": 736,
+          "width": 813,
+          "height": 717
+        },
+        "label": "Pale wardrobe with a gold-toned band",
+        "ja": "金色調の帯が入った淡色収納"
+      }
+    ]
+  },
+  "bedroom-4": {
+    "main": "bedroom-4-view-2",
+    "details": [
+      {
+        "source": "bedroom-4-view-2",
+        "crop": {
+          "left": 1261,
+          "top": 269,
+          "width": 1222,
+          "height": 723
+        },
+        "label": "Vertical lines above the bed",
+        "ja": "ベッド上の縦ライン"
+      },
+      {
+        "source": "bedroom-4-view-2",
+        "crop": {
+          "left": 90,
+          "top": 333,
+          "width": 736,
+          "height": 774
+        },
+        "label": "Two-tone wardrobe",
+        "ja": "ツートーンのワードローブ"
+      }
+    ]
+  },
+  "garage": {
+    "main": "carport-view-1",
+    "details": [
+      {
+        "source": "carport-view-1",
+        "crop": {
+          "left": 224,
+          "top": 307,
+          "width": 1050,
+          "height": 793
+        },
+        "label": "Warm wall lights under the canopy",
+        "ja": "車庫の暖色の壁面照明"
+      },
+      {
+        "source": "carport-viiew-2",
+        "crop": {
+          "left": 102,
+          "top": 1670,
+          "width": 845,
+          "height": 493
+        },
+        "label": "Open-grid paving",
+        "ja": "開口のある格子状舗装"
+      }
+    ]
+  },
+  "common-bath": {
+    "main": "common-toilet-and-bath-view-2",
+    "details": [
+      {
+        "source": "common-toilet-and-bath-view-2",
+        "crop": {
+          "left": 346,
+          "top": 179,
+          "width": 941,
+          "height": 902
+        },
+        "label": "Illuminated mirror and basin",
+        "ja": "照明付きの鏡と洗面ボウル"
+      },
+      {
+        "source": "common-toilet-and-bath-view-1",
+        "crop": {
+          "left": 1466,
+          "top": 889,
+          "width": 960,
+          "height": 550
+        },
+        "label": "Dark veined wall surface",
+        "ja": "濃色の石目調の壁"
+      }
+    ]
+  },
+  "facade-detail": {
+    "main": "design-aesthetics-view-1",
+    "details": [
+      {
+        "source": "design-aesthetics-view-2",
+        "crop": {
+          "left": 627,
+          "top": 646,
+          "width": 1069,
+          "height": 902
+        },
+        "label": "Framed window with vertical cladding",
+        "ja": "縦張り外壁と窓枠"
+      },
+      {
+        "source": "design-aesthetics-view-2",
+        "crop": {
+          "left": 1824,
+          "top": 218,
+          "width": 717,
+          "height": 857
+        },
+        "label": "Paired beams of wall light",
+        "ja": "上下に広がる壁面照明"
+      }
+    ]
+  },
+  "dining": {
+    "main": "dining-area-view-2",
+    "details": [
+      {
+        "source": "dining-area-view-2",
+        "crop": {
+          "left": 493,
+          "top": 38,
+          "width": 979,
+          "height": 685
+        },
+        "label": "Linear pendant lights",
+        "ja": "ライン状のペンダント照明"
+      },
+      {
+        "source": "dining-area-view-2",
+        "crop": {
+          "left": 774,
+          "top": 1152,
+          "width": 1344,
+          "height": 742
+        },
+        "label": "Dark veined dining table",
+        "ja": "石目調の濃色ダイニングテーブル"
+      },
+      {
+        "source": "dining-area-view-1",
+        "crop": {
+          "left": 314,
+          "top": 1241,
+          "width": 634,
+          "height": 838
+        },
+        "label": "Pale dining-chair frames",
+        "ja": "淡色のダイニングチェアフレーム"
+      }
+    ]
+  },
+  "secondary-kitchen": {
+    "main": "dirty-kitchen-view-1",
+    "details": [
+      {
+        "source": "dirty-kitchen-view-1",
+        "crop": {
+          "left": 186,
+          "top": 192,
+          "width": 1459,
+          "height": 627
+        },
+        "label": "Dark wood-toned upper cabinets",
+        "ja": "濃い木目調の吊戸棚"
+      },
+      {
+        "source": "dirty-kitchen-view-2",
+        "crop": {
+          "left": 160,
+          "top": 1152,
+          "width": 1062,
+          "height": 704
+        },
+        "label": "Inset sink and worktop",
+        "ja": "埋め込みシンクと作業台"
+      }
+    ]
+  },
+  "entry": {
+    "main": "entry-porch-view-2",
+    "details": [
+      {
+        "source": "entry-porch-view-1",
+        "crop": {
+          "left": 1306,
+          "top": 665,
+          "width": 749,
+          "height": 1088
+        },
+        "label": "Wood-toned door and recessed frame",
+        "ja": "木目調の玄関扉と奥まった枠"
+      },
+      {
+        "source": "entry-porch-view-2",
+        "crop": {
+          "left": 51,
+          "top": 1561,
+          "width": 1472,
+          "height": 595
+        },
+        "label": "Pale entry steps",
+        "ja": "淡色の玄関階段"
+      }
+    ]
+  },
+  "kitchen": {
+    "main": "kitchen-area-view-1",
+    "details": [
+      {
+        "source": "kitchen-area-view-2",
+        "crop": {
+          "left": 230,
+          "top": 333,
+          "width": 1427,
+          "height": 761
+        },
+        "label": "Dark cabinetry and under-cabinet light",
+        "ja": "濃色の収納と棚下照明"
+      },
+      {
+        "source": "kitchen-area-view-2",
+        "crop": {
+          "left": 813,
+          "top": 1132,
+          "width": 1203,
+          "height": 704
+        },
+        "label": "Veined island top and ribbed base",
+        "ja": "石目調の天板と縦ラインのアイランド"
+      },
+      {
+        "source": "kitchen-area-view-1",
+        "crop": {
+          "left": 173,
+          "top": 1433,
+          "width": 915,
+          "height": 723
+        },
+        "label": "Round stools with slim frames",
+        "ja": "細いフレームの丸いスツール"
+      }
+    ]
+  },
+  "living": {
+    "main": "living-area-view-1",
+    "details": [
+      {
+        "source": "living-area-view-2",
+        "crop": {
+          "left": 307,
+          "top": 825,
+          "width": 883,
+          "height": 729
+        },
+        "label": "Wood-toned TV cabinetry",
+        "ja": "木目調のテレビ収納"
+      },
+      {
+        "source": "living-area-view-1",
+        "crop": {
+          "left": 582,
+          "top": 1158,
+          "width": 1312,
+          "height": 614
+        },
+        "label": "Brown seating with pale cushions",
+        "ja": "ブラウンのソファと淡色クッション"
+      },
+      {
+        "source": "living-area-view-2",
+        "crop": {
+          "left": 403,
+          "top": 1555,
+          "width": 1299,
+          "height": 569
+        },
+        "label": "Dark low table",
+        "ja": "濃色のローテーブル"
+      }
+    ]
+  },
+  "exterior": {
+    "main": "main-exterior-perspectives-2",
+    "details": [
+      {
+        "source": "main-exterior-perspectives-2",
+        "crop": {
+          "left": 979,
+          "top": 390,
+          "width": 1402,
+          "height": 806
+        },
+        "label": "Layered eaves and warm downlights",
+        "ja": "重なる軒と暖色のダウンライト"
+      },
+      {
+        "source": "main-exterior-perspectives-2",
+        "crop": {
+          "left": 890,
+          "top": 787,
+          "width": 870,
+          "height": 448
+        },
+        "label": "Balcony rail and pale wall courses",
+        "ja": "バルコニー手すりと淡色の外壁"
+      }
+    ]
+  },
+  "primary-bath": {
+    "main": "master-s-bedroom-toilet-and-bath-view-1",
+    "details": [
+      {
+        "source": "master-s-bedroom-toilet-and-bath-view-1",
+        "crop": {
+          "left": 813,
+          "top": 179,
+          "width": 819,
+          "height": 921
+        },
+        "label": "Light outline at the vanity",
+        "ja": "洗面台まわりのライン照明"
+      },
+      {
+        "source": "master-s-bedroom-toilet-and-bath-view-1",
+        "crop": {
+          "left": 1594,
+          "top": 422,
+          "width": 698,
+          "height": 1100
+        },
+        "label": "Glass shower partition and dark rail",
+        "ja": "ガラスの間仕切りと濃色のシャワーバー"
+      }
+    ]
+  },
+  "primary": {
+    "main": "master-s-bedroom-view-2",
+    "details": [
+      {
+        "source": "master-s-bedroom-view-2",
+        "crop": {
+          "left": 275,
+          "top": 358,
+          "width": 928,
+          "height": 870
+        },
+        "label": "Geometric headboard wall",
+        "ja": "ヘッドボード背面の幾何学模様"
+      },
+      {
+        "source": "master-s-bedroom-view-1",
+        "crop": {
+          "left": 1888,
+          "top": 499,
+          "width": 659,
+          "height": 857
+        },
+        "label": "Low-hanging bedside pendant",
+        "ja": "低く吊ったベッドサイド照明"
+      },
+      {
+        "source": "master-s-bedroom-view-2",
+        "crop": {
+          "left": 1734,
+          "top": 512,
+          "width": 634,
+          "height": 934
+        },
+        "label": "Dark wardrobe doors",
+        "ja": "濃色のワードローブ扉"
+      }
+    ]
+  },
+  "closet": {
+    "main": "master-s-bedroom-walking-closet",
+    "details": [
+      {
+        "source": "master-s-bedroom-walking-closet",
+        "crop": {
+          "left": 32,
+          "top": 256,
+          "width": 794,
+          "height": 979
+        },
+        "label": "Wood-toned vertical frames",
+        "ja": "木目調の縦枠"
+      },
+      {
+        "source": "master-s-bedroom-walking-closet",
+        "crop": {
+          "left": 173,
+          "top": 1267,
+          "width": 1293,
+          "height": 806
+        },
+        "label": "Pale rails above the closet floor",
+        "ja": "床上の淡色の横桟"
+      }
+    ]
+  },
+  "ramp": {
+    "main": "ramp-view-2",
+    "details": [
+      {
+        "source": "ramp-view-1",
+        "crop": {
+          "left": 704,
+          "top": 940,
+          "width": 941,
+          "height": 979
+        },
+        "label": "Black ramp rails",
+        "ja": "黒いスロープ手すり"
+      },
+      {
+        "source": "ramp-view-2",
+        "crop": {
+          "left": 1779,
+          "top": 441,
+          "width": 768,
+          "height": 685
+        },
+        "label": "Warm sconce on vertical cladding",
+        "ja": "縦張りの壁面と暖色照明"
+      }
+    ]
+  },
+  "hallway": {
+    "main": "second-floor-hallway",
+    "details": [
+      {
+        "source": "second-floor-hallway",
+        "crop": {
+          "left": 422,
+          "top": 147,
+          "width": 749,
+          "height": 653
+        },
+        "label": "Globe ceiling fixture",
+        "ja": "球形の天井照明"
+      },
+      {
+        "source": "second-floor-hallway",
+        "crop": {
+          "left": 774,
+          "top": 960,
+          "width": 922,
+          "height": 908
+        },
+        "label": "Black landing guardrail",
+        "ja": "踊り場の黒い手すり"
+      }
+    ]
+  },
+  "upper-bath": {
+    "main": "second-floor-toilet-and-bath-view-1",
+    "details": [
+      {
+        "source": "second-floor-toilet-and-bath-view-1",
+        "crop": {
+          "left": 77,
+          "top": 1196,
+          "width": 909,
+          "height": 800
+        },
+        "label": "Angular vanity and mirror",
+        "ja": "直線的な洗面台と鏡"
+      },
+      {
+        "source": "second-floor-toilet-and-bath-view-1",
+        "crop": {
+          "left": 1325,
+          "top": 774,
+          "width": 1018,
+          "height": 819
+        },
+        "label": "Dark shower wall and niche",
+        "ja": "濃色のシャワー壁とニッチ"
+      }
+    ]
+  },
+  "stairs": {
+    "main": "stairs-area-view-1",
+    "details": [
+      {
+        "source": "stairs-area-view-1",
+        "crop": {
+          "left": 390,
+          "top": 1094,
+          "width": 883,
+          "height": 1036
+        },
+        "label": "Warm-toned stair treads",
+        "ja": "暖色の踏み板"
+      },
+      {
+        "source": "stairs-area-view-2",
+        "crop": {
+          "left": 640,
+          "top": 454,
+          "width": 742,
+          "height": 870
+        },
+        "label": "Ring pendants over the stairwell",
+        "ja": "階段吹き抜けのリング照明"
+      }
+    ]
+  }
+}

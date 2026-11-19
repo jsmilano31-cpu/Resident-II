@@ -5,11 +5,14 @@ import { categories, spaces } from "@/data/project";
 import type { ArchitecturalImage } from "@/types/architecture";
 import { useDialogLock } from "./useDialogLock";
 import { MediaImage } from "./MediaImage";
+import { RoomExplorerTabs, type BoardImage } from "./RoomExplorerTabs";
+
+type Modal = { kind: "perspective"; index: number } | { kind: "board"; image: BoardImage };
 export function ArchitecturalGallery({ items, label }: { items: ArchitecturalImage[]; label: string }) {
   const [category, setCategory] = useState("All spaces");
   const [spaceId, setSpaceId] = useState("living");
   const [angle, setAngle] = useState(0);
-  const [modal, setModal] = useState<number | null>(null);
+  const [modal, setModal] = useState<Modal | null>(null);
   useDialogLock(modal !== null);
   const [expanded, setExpanded] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -26,19 +29,26 @@ export function ArchitecturalGallery({ items, label }: { items: ArchitecturalIma
     : available[0]?.id;
   const views = filtered.filter((i) => i.spaceId === activeId);
   const active = views[angle] ?? views[0];
-  const selected = modal === null ? null : filtered[modal];
+  const selected = modal?.kind === "board" ? modal.image : modal && filtered[modal.index];
   function step(delta: number) {
     if (views.length)
       setAngle((i) => (i + delta + views.length) % views.length);
   }
   function stepModal(delta: number) {
-    setModal((i) =>
-      i === null ? null : (i + delta + filtered.length) % filtered.length,
+    setModal((current) =>
+      current?.kind === "perspective" && filtered.length
+        ? { kind: "perspective", index: (current.index + delta + filtered.length) % filtered.length }
+        : current,
     );
   }
   function open(image: ArchitecturalImage, button: HTMLButtonElement) {
     trigger.current = button;
-    setModal(filtered.findIndex((i) => i.id === image.id));
+    setModal({ kind: "perspective", index: filtered.indexOf(image) });
+    dialog.current?.showModal();
+  }
+  function openBoard(image: BoardImage, button: HTMLButtonElement) {
+    trigger.current = button;
+    setModal({ kind: "board", image });
     dialog.current?.showModal();
   }
   function swipe(end: number, isModal = false) {
@@ -87,7 +97,7 @@ export function ArchitecturalGallery({ items, label }: { items: ArchitecturalIma
         </label>
         <div className="explorer-main">
           {active ? (
-            <>
+            <RoomExplorerTabs active={active} onOpen={openBoard}>
               <button
                 className="explorer-image"
                 aria-label={"Enlarge: " + active.caption}
@@ -149,7 +159,7 @@ export function ArchitecturalGallery({ items, label }: { items: ArchitecturalIma
                   </button>
                 ))}
               </div>
-            </>
+            </RoomExplorerTabs>
           ) : (
             <p>No perspectives available.</p>
           )}
@@ -218,7 +228,7 @@ export function ArchitecturalGallery({ items, label }: { items: ArchitecturalIma
           if (e.target === e.currentTarget) dialog.current?.close();
         }}
         onKeyDown={(e) => {
-          if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+          if (modal?.kind === "perspective" && (e.key === "ArrowRight" || e.key === "ArrowLeft")) {
             e.preventDefault();
             stepModal(e.key === "ArrowRight" ? 1 : -1);
           }
@@ -248,28 +258,30 @@ export function ArchitecturalGallery({ items, label }: { items: ArchitecturalIma
         <div className="lightbox-bottom">
           <p aria-live="polite">
             {selected?.caption}
-            <span>
-              {modal === null ? 0 : modal + 1} / {filtered.length}
-            </span>
+            {modal?.kind === "perspective" && (
+              <span>{modal.index + 1} / {filtered.length}</span>
+            )}
           </p>
-          <div className="lightbox-arrows">
-            <button
-              className="icon-button"
-              aria-label="Previous image"
-              disabled={filtered.length < 2}
-              onClick={() => stepModal(-1)}
-            >
-              <ArrowLeft />
-            </button>
-            <button
-              className="icon-button"
-              aria-label="Next image"
-              disabled={filtered.length < 2}
-              onClick={() => stepModal(1)}
-            >
-              <ArrowRight />
-            </button>
-          </div>
+          {modal?.kind === "perspective" && (
+            <div className="lightbox-arrows">
+              <button
+                className="icon-button"
+                aria-label="Previous image"
+                disabled={filtered.length < 2}
+                onClick={() => stepModal(-1)}
+              >
+                <ArrowLeft />
+              </button>
+              <button
+                className="icon-button"
+                aria-label="Next image"
+                disabled={filtered.length < 2}
+                onClick={() => stepModal(1)}
+              >
+                <ArrowRight />
+              </button>
+            </div>
+          )}
         </div>
       </dialog>
     </div>
