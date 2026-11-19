@@ -3,41 +3,62 @@ import { MediaImage } from "@/components/MediaImage";
 import { renderByFile } from "@/data/project";
 import styles from "./MoodBoard.module.css";
 
-const finishes = [
-  { label: "Timber soffit", ja: "木目の軒天", color: "#845e40" },
-  { label: "Dark framing", ja: "濃色のフレーム", color: "#41413f" },
-  { label: "Pale masonry", ja: "淡色の石積み", color: "#d8cdbb" },
-  { label: "Warm upholstery", ja: "暖色の張り地", color: "#755646" },
+const details = [
+  { image: "soffit", label: "Wood-toned soffit", location: "Above the balcony", ja: "バルコニー上の木目調の軒天" },
+  { image: "framing", label: "Dark roof edge", location: "Upper roof, right side", ja: "上段の屋根の右側" },
+  { image: "masonry", label: "Pale wall", location: "Right boundary wall", ja: "右側の明るい色の外構壁" },
+  { image: "seating", label: "Brown upholstery", location: "Living-room sofa", ja: "リビングのソファの茶色い張り地" },
 ];
 
 export function MoodBoard() {
   return (
-    <div className={styles.board} role="region" aria-labelledby="materials-title" data-reveal>
+    <section
+      className={styles.board}
+      aria-labelledby="materials-title"
+      data-reveal
+    >
       <span className="eyebrow" lang="ja">素材と光</span>
-      <h3 id="materials-title">Materials in light.</h3>
+      <h3 id="materials-title">Under the eaves.</h3>
       <div className={styles.grid}>
-        <div className={styles.facade}>
-          <MediaImage image={renderByFile("MAIN EXTERIOR PERSPECTIVES 2.png")} sizes="(max-width: 700px) 90vw, 52vw" />
-        </div>
-        <div className={styles.room}>
-          <MediaImage image={renderByFile("LIVING AREA VIEW 2.png")} sizes="(max-width: 700px) 90vw, 36vw" />
-        </div>
-        <div className={styles.details} aria-hidden="true">
-          {["soffit", "framing", "masonry"].map((detail) => (
-            <div key={detail} className={styles.detail}>
-              <Image src={`/moodboard/${detail}.webp`} alt="" fill sizes="(max-width: 700px) 28vw, 12vw" />
-            </div>
-          ))}
+        <figure className={styles.facade}>
+          <MediaImage
+            image={renderByFile("MAIN EXTERIOR PERSPECTIVES 2.png")}
+            sizes="(max-width: 850px) 90vw, 51vw"
+          />
+          <figcaption>
+            Exterior perspective <span lang="ja">外観</span>
+          </figcaption>
+        </figure>
+        <div className={styles.study}>
+          <figure className={styles.room}>
+            <MediaImage
+              image={renderByFile("LIVING AREA VIEW 2.png")}
+              sizes="(max-width: 480px) 90vw, (max-width: 850px) 58vw, 24vw"
+            />
+            <figcaption>
+              Living room <span lang="ja">リビング</span>
+            </figcaption>
+          </figure>
+          <div className={styles.details}>
+            {details.map(({ image, label, location, ja }) => (
+              <figure key={image}>
+                <div className={styles.crop}>
+                  <Image src={`/moodboard/${image}.webp`} alt="" fill />
+                </div>
+                <figcaption>
+                  {label}
+                  <small>{location}</small>
+                  <span lang="ja">{ja}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
-      <ul className={styles.legend} aria-label="Material palette">
-        {finishes.map(({ label, ja, color }) => (
-          <li key={label}>
-            <i style={{ backgroundColor: color }} aria-hidden="true" />
-            <span>{label}<small lang="ja">{ja}</small></span>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <p className={styles.note}>
+        Details cropped from the supplied architectural renders.
+        <span lang="ja">提供された建築パースから細部を抜粋しています。</span>
+      </p>
+    </section>
   );
 }
